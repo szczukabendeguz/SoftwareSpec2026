@@ -133,14 +133,19 @@ Egy modern, hosszan görgethető, marketing fókuszú weboldal.
 
 ### Képernyő 9: Intelligens Visszajelzés (Ride Feedback)
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+- **Hogyan néz ki?**  
+  Egy interaktív "panaszbejelentő" felület, amely a tapasztalt problémák gyors és vizuális megadására fókuszál. Felül tematikus kategóriákba rendezett panaszkártyák (címkék) találhatók rácsos elrendezésben. Alattuk vizuális csúszkák (Slider-ek) helyezkednek el, amelyekkel a kerékpár viselkedésének jellegét lehet finomhangolni. Legalul egy kiemelt CTA gomb található. Nincs szabad szöveges mező, hogy az adatok strukturáltak maradjanak az algoritmus számára.
 
-- **Hogyan néz ki?** Panaszkártyák (címkék) rácsos elrendezésben, alatta egy szabadszöveges mező.
 - **Milyen interaktív elemek vannak?**
-    - **Gyorspanasz címkék (Multi-select Chips):** Pl. „Felüt az ugrásnál”, „Kevés tapadás”. Több is kiválasztható, rákattintva színt váltanak (aktívak lesznek).
-    - **„Egyéb megjegyzés” mező (Textarea):** Ide saját szavakkal lehet gépelni.
-    - **„Elemzés és Javaslat kérése” (Kiemelt gomb):** Elküldi az adatokat a backendnek elemzésre.
-- **Mi történik a gombnyomás után?** Megjelenik egy 1-2 másodperces töltőképernyő (animáció), amíg az algoritmus kiszámolja a megoldást, majd megnyílik a **Képernyő 10 (Javaslat)**.
+  - **Gyorspanasz címkék (Multi-select Chips):** Kategóriákra bontva (pl. *Ugrások/Letörések*, *Kanyarodás*, *Köves/Gyökeres szakaszok*). Olyan opciók választhatók, mint „Felüt az ugrásnál”, „Kevés a tapadás kanyarban”, vagy „Pattog a kerék”. Több is kiválasztható egyszerre; rákattintva színt váltanak (aktívak lesznek).
+  - **Karakterisztika csúszkák (Range Sliders):** Két végpontos csúszkák a szubjektív érzet megadására. 
+    - *Rázós (Túl kemény) <---> Puha (Túl lágy)*
+    - *Lassú/Lomha <---> Gyors/Pattogós (Rebound érzet)*
+    - *Kevés támogatás <---> Túl sok támogatás (Középtartomány)*
+  - **„Elemzés és Javaslat kérése” (Kiemelt gomb):** Összegyűjti az aktív címkéket és a csúszkák pozícióját, majd elküldi az adatokat a backendnek elemzésre.
+
+- **Mi történik a gombnyomás után?**  
+  Megjelenik egy 1-2 másodperces töltőképernyő (animáció), amíg a szabályrendszer kiszámolja a megadott tünetekre a megfelelő hardveres megoldást, majd a rendszer átirányít a **Képernyő 10-re (Javaslat)**.
 
 
 ### Képernyő 10: Intelligens Javaslat és Véglegesítés
