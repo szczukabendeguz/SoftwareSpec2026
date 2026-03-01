@@ -53,6 +53,7 @@ Egy modern, hosszan görgethető, marketing fókuszú weboldal.
 - **Milyen interaktív elemek vannak?**
     - **Kerékpár márka/modell, Villa, Rugóstag legördülő menük (Dropdown/Searchable Select):** A felhasználó rákereshet és kiválaszthatja a SQL adatbázisban szereplő gyári elemeket.
     - **„Testsúly felszerelésben” számmező (Number input):** Numerikus billentyűzetet hoz fel a pontos KG megadásához.
+    - **Gumi paraméterek: Gumiszélesség választó (pl. 2.4", 2.5") és kerék típus kapcsoló (Belső gumi / Tubeless) a nyomás kalkulációjához.
     - **„Vissza” gomb a bal felső sarokban:** Változtatások nélkül visszadob a **Képernyő 2-re**.
     - **„Mentés és Alapbeállítás lekérése” (Nagy, kiemelt gomb):** Validálja az űrlapot.
 - **Mi történik a gombnyomás után?** Az adatok rögzülnek a felhasználói profilhoz, és a rendszer továbbléptet a **Képernyő 4-re (Gyári Alapbeállítások)**.
@@ -62,8 +63,9 @@ Egy modern, hosszan görgethető, marketing fókuszú weboldal.
 
 [KÉPERNYŐKÉP BEILLESZTÉSE IDE]
 
-- **Hogyan néz ki?** Nagy, jól olvasható számok paneljei (pl. „Villa: 75 PSI”, „Rugóstag: 180 PSI”). A paraméterek mellett kis információs ikonok találhatók.
+- **Hogyan néz ki?** Nagy, jól olvasható számok paneljei (pl. „Villa: 75 PSI”, „Rugóstag: 180 PSI”). A paraméterek mellett kis információs ikonok találhatók. A felfüggesztés mellett egy új panel mutatja az ajánlott guminyomást is.
 - **Milyen interaktív elemek vannak?**
+    - **Ajánlott Guminyomás panel: Külön mutatja az előre és hátulra javasolt bar/psi értékeket a megadott adatok alapján.
     - **Információs („i”) ikonok:** Rábökve egy Tooltip (kicsi felugró buborék) magyarázza el röviden, mi az a PSI vagy a Rebound.
     - **„Adatok módosítása” másodlagos gomb:** Visszavisz a **Képernyő 3-ra**, ha a felhasználó elírta a súlyát.
     - **„Beállítottam, mehetünk!” (Nagy, zöld gomb):** Véglegesíti az első lépéseket.
@@ -100,12 +102,13 @@ Egy modern, hosszan görgethető, marketing fókuszú weboldal.
 
 [KÉPERNYŐKÉP BEILLESZTÉSE IDE]
 
-- **Hogyan néz ki?** Felül a kiválasztott pálya neve. Alatta két hatalmas fül (Tab), amik a képernyő módját váltják. Középen a konkrét utasítások listája (pl. „Nyomás: -5 PSI”).
+- **Hogyan néz ki?** Felül a kiválasztott pálya neve. Alatta két hatalmas fül (Tab), amik a képernyő módját váltják. Középen a konkrét utasítások listája (pl. „Nyomás: -5 PSI”). És az időjárási viszonyokhoz tartozó gyorskapcsoló.
 - **Milyen interaktív elemek vannak?**
+    -**Sár mód / Csúszós terep” Toggle: Aktiválásakor az algoritmus azonnal módosítja a javasolt értékeket (pl. alacsonyabb nyomás, lassabb visszaút) a jobb tapadásért.
     - **„Mit tekerjek? (Különbség)” Tab:** Erre kattintva a lista azt mutatja, mennyit kell csavarni a *jelenlegi* beállításhoz képest (pl. +2 kattintás).
     - **„Teljes értékek (Abszolút)” Tab:** Erre kattintva a lista a teljesen zárt állapottól számított teljes értékeket mutatja (pl. 8 kattintás).
     - **„Kész, beállítottam a bringán!” (Jóváhagyó gomb):** Nyugtázza a fizikai módosítást.
-- **Mi történik a gombnyomás után?** A szoftver felülírja a „jelenlegi fizikai állapotot” a memóriában ezekre az értékekre, így a rendszer szinkronba kerül a valósággal. Átirányít a **Képernyő 2-re**.
+- **Mi történik a gombnyomás után?** A szoftver felülírja a „jelenlegi fizikai állapotot” a memóriában ezekre az értékekre (figyelembe véve a Sár módot is), így a rendszer szinkronba kerül a valósággal. Átirányít a **Képernyő 2-re**.
 
 
 ### Képernyő 8: Paraméterek Manuális Szerkesztése
