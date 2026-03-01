@@ -89,13 +89,19 @@ Egy modern, hosszan görgethető, marketing fókuszú weboldal.
 
 [KÉPERNYŐKÉP BEILLESZTÉSE IDE]
 
-- **Hogyan néz ki?** Egy mentési összesítő űrlap. Felül egy szövegmező, alatta a menteni kívánt értékek listája, legalul pedig láthatósági beállítások.
+- **Hogyan néz ki?**  
+  Egy mentési összesítő űrlap. Felül szövegmezők (pálya neve és körülmények) találhatók. Ez alatt egy vizuálisan kiemelt („Rád szabva!”) információs sáv jelzi, hogy az algoritmus már adaptálta az importált értékeket a felhasználó saját testsúlyához és hardveréhez. Alatta látható a menteni kívánt teleszkóp és rugóstag értékek összesítő listája, legalul pedig a láthatósági beállítások és a gombok kaptak helyet.
+
 - **Milyen interaktív elemek vannak?**
-    - **„Pálya / Terep neve” mező (Text input):** Ide írja be a felhasználó az azonosítót (pl. „János-hegy esős”).
-    - **Láthatóság kapcsoló (Toggle/Switch):** Átkapcsolható „Privát” (csak én látom) és „Publikus” (Közösségi térben megjelenik) között.
-    - **„Mégsem” gomb:** Megszakítja a folyamatot, visszavisz az előző képernyőre.
-    - **„Pálya Profil Mentése” elsődleges gomb:** Végrehajtja a mentést.
-- **Mi történik a gombnyomás után?** Az alkalmazás elmenti az új profilt az adatbázisba, megjeleníti a Dashboardon, és átirányít a **Képernyő 2-re**.
+  - **„Pálya / Profil neve” és „Körülmények” mezők (Text input):** Ide írja be a felhasználó az azonosítót (pl. „Schladming Pro Line”) és az opcionális pályaállapotot (pl. „Száraz, Poros”).
+  - **Láthatóság kapcsoló (Toggle/Switch):** Átkapcsolható „Privát” (csak én látom) és „Publikus megosztás” (Közösségi térben megjelenik) között.
+  - **„Mégsem” gomb:** Megszakítja a folyamatot, visszavisz az előző képernyőre.
+  - **„Pálya Profil Mentése” elsődleges gomb:** Végrehajtja a mentést és visszatér a főoldalra.
+  - **„Mentés és beállítás (Irány a pálya)” másodlagos gomb:** Végrehajtja a mentést, majd azonnal átlép a pályabeállítás nézetre.
+
+- **Mi történik a gombnyomás után?**
+  - A **„Pálya Profil Mentése”** gomb megnyomásakor az alkalmazás elmenti az új profilt az adatbázisba, megjeleníti a Dashboardon, és átirányít a **Képernyő 2-re**.
+  - A **„Mentés és beállítás (Irány a pálya)”** gomb megnyomásakor az adatbázisba rögzítés után a rendszer azonnal a **Képernyő 7-re (Pályára érkezés)** ugrik, elősegítve, hogy a felhasználó fizikailag is beállíthassa a teleszkópját.
 
 
 ### Képernyő 7: Pályára Érkezés és Alkalmazás (Delta / Abszolút Nézet)
