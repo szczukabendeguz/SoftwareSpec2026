@@ -1,163 +1,150 @@
+# TrailTune - UI / UX Képernyő Specifikáció
+
+Ez a dokumentum a TrailTune prototípus aktuálisan lefejlesztett, böngészőben tesztelhető képernyőit, azok funkcióit és a közöttük lévő navigációs logikát (flow) foglalja össze. Nincs szükség backend szerverre az interakciók bemutatásához, a prototípus tisztán HTML/CSS (és minimális JS) alapokon működik.
+
+---
 
 ### Képernyő 0: Landing Page (Érkezési oldal új látogatóknak)
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Egy modern, hosszan görgethető, marketing fókuszú weboldal sötét témával.
+*   **Header (Fejléc):** Bal oldalon az alkalmazás logója, jobb oldalon egy diszkrét, áttetsző „Belépés” gomb.
+*   **Hero Section (Fő banner):** A képernyő felső részét egy dinamikus, mountain bike-os háttérkép uralja. Rajta egy nagy, figyelemfelkeltő címsor, alatta egy rövid értékajánlat, és egy hangsúlyos zöld „Kezdd el ingyen” gomb.
+*   **Features (Funkciók) szekció:** Lejjebb görgetve 3 minimalista kártya mutatja be a fő funkciókat ikonokkal.
 
-- **Hogyan néz ki?**
-Egy modern, hosszan görgethető, marketing fókuszú weboldal.
-    - **Header (Fejléc):** Bal oldalon az alkalmazás logója, jobb oldalon egy diszkrét „Belépés” gomb.
-    - **Hero Section (Fő banner):** A képernyő felső részét egy dinamikus, egész képernyős mountain bike-os háttérkép vagy videó uralja. Rajta egy nagy, figyelemfelkeltő címsor (pl. *„Hozd ki a maximumot a bringádból mérnöki diploma nélkül!”*), alatta egy rövid értékajánlat (Value Proposition), és egy hatalmas, kontrasztos „Kezdd el ingyen” gomb.
-    - **Features (Funkciók) szekció:** Lejjebb görgetve 3 dizájnos ikon/kártya mutatja be a fő funkciókat: *„1. Intelligens javaslatok”, „2. Közösségi beállítások”, „3. Virtuális garázs”*.
-- **Milyen interaktív elemek vannak?**
-    - **Fejléc „Belépés” gomb (Secondary Button):** A már regisztrált felhasználóknak szóló gyors link a jobb felső sarokban.
-    - **Hero Section „Kezdd el ingyen / Regisztráció” gomb (Primary CTA):** A leginkább kiemelt, pulzáló vagy élénk színű konverziós gomb a képernyő közepén, amely az új érdeklődőket célozza.
-    - **Függőleges görgetés (Scroll):** A felhasználó lefelé görgetve felfedezheti a funkciókat bemutató információs blokkokat.
-    - **„Próbáld ki most” gomb az oldal alján (Bottom CTA):** A görgetés végén egy ismételt regisztrációs felhívás, hogy ne kelljen visszagörgetni a tetejére.
-- **Mi történik a gombnyomás után?**
-    - A fejléc **„Belépés”** gombjára kattintva a rendszer a **Képernyő 1-re (Kezdőlap és Autentikáció)** irányítja a felhasználót, és automatikusan a *„Bejelentkezés”* fület (Tab-ot) teszi aktívvá.
-    - A Hero szekcióban lévő **„Kezdd el ingyen”**, illetve az oldal alján lévő **„Próbáld ki most”** gombokra kattintva a rendszer szintén a **Képernyő 1-re** ugrik, de úgy, hogy a *„Regisztráció”* (Fiók létrehozása) fül lesz az aktív, felgyorsítva ezzel az onboarding folyamatot, hogy azonnal megadhassa az adatait.
+**Interakciók és Flow:**
+*   **Fejléc „Belépés” gomb:** A már regisztrált felhasználóknak szól. Átirányít a **Képernyő 1-re**, méghozzá úgy, hogy a „Bejelentkezés” fül legyen aktív.
+*   **„Kezdd el ingyen” (Hero) / „Próbáld ki most” (Bottom) gombok:** Az új érdeklődőket célozza. Átirányít a **Képernyő 1-re**, aktiválva a „Regisztráció” fület.
+
+---
 
 ### Képernyő 1: Kezdőlap és Autentikáció
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Egyszerű, kártya alapú nézet középre igazítva. Felül az alkalmazás logója, alatta két nagyméretű, CSS-alapú fül (Tab): „Bejelentkezés” és „Regisztráció”. 
 
-- **Hogyan néz ki?** Felül az alkalmazás logója. Alatta két nagyméretű, váltható fül (Tab): „Bejelentkezés” és „Regisztráció”. Középen szöveges beviteli mezők, alul egy hangsúlyos elsődleges (Primary) gomb.
-- **Milyen interaktív elemek vannak?**
-    - **Bejelentkezés / Regisztráció fülek:** Kattintásra a képernyőn belül cseréli az űrlapot (nincs oldalváltás).
-    - **Email és Jelszó mezők (Input text/password):** Ide gépeli be a felhasználó az adatait.
-    - **„Elfelejtett jelszó” szöveges link:** Egy felugró (Modal) ablakot nyit meg a jelszó-visszaállításhoz.
-    - **„Belépés” / „Fiók létrehozása” gomb:** Elküldi az adatokat az API-nak.
-- **Mi történik a gombnyomás után?**
-    - Regisztráció esetén (új fiók, nincs még kerékpár): a rendszer a **Képernyő 3-ra (Új Kerékpár Hozzáadása)** irányít.
-    - Bejelentkezés esetén (létező fiók): a rendszer a **Képernyő 2-re (Dashboard)** irányít.
+**Interakciók és Flow:**
+*   **Bejelentkezés / Regisztráció fülek:** Kattintásra a képernyőn belül cseréli az űrlapot (nincs oldalváltás).
+*   **„Elfelejtett jelszó” link:** Egy sötét, CSS-only felugró (Modal) ablakot nyit meg a jelszó-visszaállításhoz (Elmosott, blur hátterű overlay).
+*   **„Fiók létrehozása” gomb (Regisztráció végén):** A rendszer feltételezi, hogy nincs még megadott adat, ezért a **Képernyő 3-ra (Új Kerékpár Hozzáadása)** irányít.
+*   **„Belépés” gomb (Bejelentkezés végén):** A rendszer a **Képernyő 2-re (Dashboard)** irányít.
 
+---
 
 ### Képernyő 2: Főoldal (Dashboard) és Garázs
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Ez a felhasználó fő bázisa. Felül a jelenleg aktív kerékpár nagy képes kártyája látható. Alatta egy görgethető rácsos lista a mentett pályák (beállítások) kártyáival. A képernyő jobb alsó sarkában egy lebegő akciógomb (FAB), alul pedig egy fix navigációs sáv (Navbar) található.
 
-- **Hogyan néz ki?** Felül a jelenleg aktív kerékpár nagy kártyája (kép, név, aktív beállítás neve). Alatta egy görgethető rácsos lista a mentett pályák kártyáival. A képernyő jobb alsó sarkában egy lebegő akciógomb (FAB), alul pedig egy fix navigációs sáv (Navbar).
-- **Milyen interaktív elemek vannak?**
-    - **„Új kerékpár hozzáadása” ikon (Navbar vagy Header):** Átirányít a **Képernyő 3-ra**.
-    - **Aktív kerékpár kártyáján lévő „Szerkesztés” (Ceruza ikon):** Átirányít a **Képernyő 8-ra (Manuális szerkesztés)**.
-    - **„Mentett Pályáim” kártyák (pl. Mátra Enduro):** Egy konkrét kártyára bökve a rendszer a **Képernyő 7-re (Pályára érkezés)** ugrik.
-    - **Lebegő Akciógomb (FAB) „Új visszajelzés” ikonnal:** Elindítja a hibakeresést, átirányít a **Képernyő 9-re (Intelligens visszajelzés)**.
-    - **Alsó Navbar „Közösség” gomb:** Átirányít a **Képernyő 5-re (Közösségi Felfedező)**.
+**Interakciók és Flow:**
+*   **„Új bringa hozzáadása” ikon (Fejléc):** Átirányít a **Képernyő 3-ra**.
+*   **„Szerkesztés / Finomhangolás” (Ceruza ikon az aktív kerékpáron):** Átirányít a **Képernyő 8-ra (Manuális szerkesztés)**.
+*   **„Mentett Pályáim” kártyák:** Bármelyik beállítás kártyájára bökve a rendszer a **Képernyő 7-re (Pályára érkezés)** ugrik.
+*   **Lebegő Akciógomb (FAB):** Zöld, villáskulcs ikonnal ellátott gomb. Elindítja a hibakeresést, átirányít a **Képernyő 9-re (Intelligens visszajelzés)**.
+*   **Alsó Navbar „Közösség” gomb:** Átirányít a **Képernyő 5-re (Közösségi Felfedező)**.
 
+---
 
 ### Képernyő 3: Új Kerékpár és Felfüggesztés Hozzáadása
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Egy letisztult űrlap, amely bekéri a hardveres adatokat.
+*   **Kerékpár fotó:** Egy stílusozott gomb, ami megnyitja a készülék képfeltöltőjét.
+*   **Legördülő menük (Select):** Kerékpár márka, Villa, Rugóstag.
+*   **Súly-mező:** Szám beviteli mező az összsúlyra (felszerelésben).
+*   **Gumi paraméterek:** Külön blokk (Gumiszélesség választó és egy Tubeless (Csobi) kapcsoló).
 
-- **Hogyan néz ki?** Egy letisztult, lefelé görgethető űrlap, amely lépésről lépésre kéri be a hardveres adatokat.
-- **Milyen interaktív elemek vannak?**
-    - **Kerékpár márka/modell, Villa, Rugóstag legördülő menük (Dropdown/Searchable Select):** A felhasználó rákereshet és kiválaszthatja a SQL adatbázisban szereplő gyári elemeket.
-    - **„Testsúly felszerelésben” számmező (Number input):** Numerikus billentyűzetet hoz fel a pontos KG megadásához.
-    - **Gumi paraméterek: Gumiszélesség választó (pl. 2.4", 2.5") és kerék típus kapcsoló (Belső gumi / Tubeless) a nyomás kalkulációjához.
-    - **„Vissza” gomb a bal felső sarokban:** Változtatások nélkül visszadob a **Képernyő 2-re**.
-    - **„Mentés és Alapbeállítás lekérése” (Nagy, kiemelt gomb):** Validálja az űrlapot.
-- **Mi történik a gombnyomás után?** Az adatok rögzülnek a felhasználói profilhoz, és a rendszer továbbléptet a **Képernyő 4-re (Gyári Alapbeállítások)**.
+**Interakciók és Flow:**
+*   **„Vissza” gomb a bal felső sarokban:** Változtatások nélkül visszadob a **Képernyő 2-re**.
+*   **„Mentés és Alapbeállítás lekérése” (Nagy gomb lent):** Validálja az űrlapot. Megnyomásakor a rendszer továbbléptet a **Képernyő 4-re (Gyári Alapbeállítások)**.
 
+---
 
 ### Képernyő 4: Gyári Alapbeállítások (Base Setup)
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Nagy, jól olvasható számok paneljeiből áll. Három fő csoport van: Villa, Rugóstag és a Gumi paraméterek alapján számított Ajánlott Guminyomás panel. A paraméterek mellett kis (i) ikonok találhatók.
 
-- **Hogyan néz ki?** Nagy, jól olvasható számok paneljei (pl. „Villa: 75 PSI”, „Rugóstag: 180 PSI”). A paraméterek mellett kis információs ikonok találhatók. A felfüggesztés mellett egy új panel mutatja az ajánlott guminyomást is.
-- **Milyen interaktív elemek vannak?**
-    - **Ajánlott Guminyomás panel: Külön mutatja az előre és hátulra javasolt bar/psi értékeket a megadott adatok alapján.
-    - **Információs („i”) ikonok:** Rábökve egy Tooltip (kicsi felugró buborék) magyarázza el röviden, mi az a PSI vagy a Rebound.
-    - **„Adatok módosítása” másodlagos gomb:** Visszavisz a **Képernyő 3-ra**, ha a felhasználó elírta a súlyát.
-    - **„Beállítottam, mehetünk!” (Nagy, zöld gomb):** Véglegesíti az első lépéseket.
-- **Mi történik a gombnyomás után?** Az alkalmazás ezeket az értékeket menti el „Alapértelmezett” faként, beállítja az aktuális fizikai állapotnak, majd átirányít a **Képernyő 2-re (Dashboard)**.
+**Interakciók és Flow:**
+*   **Információs („i”) ikonok:** Rábökve/fölé víve az egeret egy Tooltip (kicsi felugró fekete buborék) magyarázza el röviden, mi az a PSI, BAR, LSC vagy a Rebound. Mindez JS mentesen történik.
+*   **„Adatok módosítása” másodlagos gomb:** Visszavisz a **Képernyő 3-ra**, ha a felhasználó mondjuk elírta a súlyát.
+*   **„Beállítottam, mehetünk!” (Zöld gomb):** Véglegesíti az első lépéseket. Átirányít a **Képernyő 2-re (Dashboard)**.
 
+---
 
 ### Képernyő 5: Közösségi Felfedező (Social Setup Explorer)
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Legfelül egy keresősáv, alatta vízszintesen görgethető (rejtett görgetősávval rendelkező) szűrő-címkék (Chips). Alatta az Accordion típusú, profilképpel ellátott listakártyák.
 
-- **Hogyan néz ki?** Legfelül egy keresősáv, alatta vízszintesen görgethető szűrő-címkék (Chips). A képernyő nagy részét a többi felhasználó által feltöltött beállításokat mutató listakártyák teszik ki.
-- **Milyen interaktív elemek vannak?**
-    - **Keresősáv (Search bar):** Szöveges keresés pályanevekre (pl. „Schladming”). Beírásra a lista azonnal szűrődik.
-    - **Szűrő-címkék (Toggle Chips):** Pl. „Csak az én bringám”, „+- 5kg súlykülönbség”. Rányomva aktív/inaktív állapotba váltanak, a backend azonnal újrafrissíti a kártyákat.
-    - **Közösségi beállítás kártya:** Rákattintva a kártya lenyílik (Accordion), és megmutatja a konkrét teleszkóp értékeket.
-    - **„Beállítás Importálása” gomb a lenyílt kártyán belül:** Ezzel indítható el a mentési folyamat.
-- **Mi történik a gombnyomás után?** Az importálás gomb azonnal átirányít a **Képernyő 6-ra (Pályaspecifikus Mentés)**, magával víve a kiválasztott értékeket.
+**Interakciók és Flow:**
+*   **Szűrő-címkék (Toggle Chips):** CSS-alapú kapcsolók. Rányomva aktív (zöld)/inaktív állapotba váltanak valós időben. 
+*   **Közösségi beállítás kártya (Accordion):** Rákattintva a kártya animálva lenyílik, és megmutatja a konkrét letöltendő teleszkóp értékeket.
+*   **„Beállítás Importálása” gomb (A lenyílt kártyán belül):** Ezzel indítható el a mentési folyamat. Átirányít a **Képernyő 6-ra (Mentés)**.
+*   **Alsó Navbar „Garázs” gomb:** Átirányít a **Képernyő 2-re**.
 
+---
 
 ### Képernyő 6: Pályaspecifikus Beállítás Mentése
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Egy mentési összesítő űrlap. Felül szövegmezők (pálya neve és körülmények). Ez alatt egy zöld hátterű információs sáv jelzi („Rád szabva!”), hogy a szoftver adaptálta az importált értékeket a felhasználó adataira. Alatta egy blokkosított "nyugta" szerű lista összegzi az értékeket, majd jönnek a mentési opciók és gombok.
 
-- **Hogyan néz ki?**  
-  Egy mentési összesítő űrlap. Felül szövegmezők (pálya neve és körülmények) találhatók. Ez alatt egy vizuálisan kiemelt („Rád szabva!”) információs sáv jelzi, hogy az algoritmus már adaptálta az importált értékeket a felhasználó saját testsúlyához és hardveréhez. Alatta látható a menteni kívánt teleszkóp és rugóstag értékek összesítő listája, legalul pedig a láthatósági beállítások és a gombok kaptak helyet.
+**Interakciók és Flow:**
+*   **Láthatóság kapcsoló (Toggle/Switch):** Átkapcsolható telefonos stílusú gomb a „Privát” és „Publikus megosztás” között.
+*   **„Mégsem” gomb (Felül és Alul is):** Megszakítja a folyamatot, visszavisz a **Képernyő 5-re**.
+*   **„Pálya Profil Mentése” (Zöld gomb):** Végrehajtja a mentést és visszatér a **Képernyő 2-re**.
+*   **„Mentés és beállítás (Irány a pálya)” (Sötét gomb):** Végrehajtja a mentést, majd azonnal átlép a valós beállítást segítő **Képernyő 7-re**.
 
-- **Milyen interaktív elemek vannak?**
-  - **„Pálya / Profil neve” és „Körülmények” mezők (Text input):** Ide írja be a felhasználó az azonosítót (pl. „Schladming Pro Line”) és az opcionális pályaállapotot (pl. „Száraz, Poros”).
-  - **Láthatóság kapcsoló (Toggle/Switch):** Átkapcsolható „Privát” (csak én látom) és „Publikus megosztás” (Közösségi térben megjelenik) között.
-  - **„Mégsem” gomb:** Megszakítja a folyamatot, visszavisz az előző képernyőre.
-  - **„Pálya Profil Mentése” elsődleges gomb:** Végrehajtja a mentést és visszatér a főoldalra.
-  - **„Mentés és beállítás (Irány a pálya)” másodlagos gomb:** Végrehajtja a mentést, majd azonnal átlép a pályabeállítás nézetre.
-
-- **Mi történik a gombnyomás után?**
-  - A **„Pálya Profil Mentése”** gomb megnyomásakor az alkalmazás elmenti az új profilt az adatbázisba, megjeleníti a Dashboardon, és átirányít a **Képernyő 2-re**.
-  - A **„Mentés és beállítás (Irány a pálya)”** gomb megnyomásakor az adatbázisba rögzítés után a rendszer azonnal a **Képernyő 7-re (Pályára érkezés)** ugrik, elősegítve, hogy a felhasználó fizikailag is beállíthassa a teleszkópját.
-
+---
 
 ### Képernyő 7: Pályára Érkezés és Alkalmazás (Delta / Abszolút Nézet)
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Célirányos szerelési nézet. Felül a kiválasztott pálya neve és viszonyítási alapként a jelenlegi beállítás. Alatta egy Sár/Csúszós terep panel. Középen zölddel kiemelt fülekkel lehet váltani a nézetek között, amik a konkrét listaszerű szerelési instrukciókat (zöld/piros) tartalamazzák.
 
-- **Hogyan néz ki?** Felül a kiválasztott pálya neve. Alatta két hatalmas fül (Tab), amik a képernyő módját váltják. Középen a konkrét utasítások listája (pl. „Nyomás: -5 PSI”). És az időjárási viszonyokhoz tartozó gyorskapcsoló.
-- **Milyen interaktív elemek vannak?**
-    -**Sár mód / Csúszós terep” Toggle: Aktiválásakor az algoritmus azonnal módosítja a javasolt értékeket (pl. alacsonyabb nyomás, lassabb visszaút) a jobb tapadásért.
-    - **„Mit tekerjek? (Különbség)” Tab:** Erre kattintva a lista azt mutatja, mennyit kell csavarni a *jelenlegi* beállításhoz képest (pl. +2 kattintás).
-    - **„Teljes értékek (Abszolút)” Tab:** Erre kattintva a lista a teljesen zárt állapottól számított teljes értékeket mutatja (pl. 8 kattintás).
-    - **„Kész, beállítottam a bringán!” (Jóváhagyó gomb):** Nyugtázza a fizikai módosítást.
-- **Mi történik a gombnyomás után?** A szoftver felülírja a „jelenlegi fizikai állapotot” a memóriában ezekre az értékekre (figyelembe véve a Sár módot is), így a rendszer szinkronba kerül a valósággal. Átirányít a **Képernyő 2-re**.
+**Interakciók és Flow:**
+*   **„Sár / Csúszós terep” Toggle:** Barna/Narancssárgás vizuális gomb, amely aktiválásával elméletben átszámolja az értékeket.
+*   **Nézetváltó Fülek (Különbség / Abszolút):** Zöld hátterű fülrendszer. A *„Mit tekerjek?”* fül zölddel (pl. +2 Katt) és pirossal (pl. -4 PSI) mutatja az eltéréseket az eredetihez képest. Az *„Abszolút”* fülön egyszerű fehér színnel jelenik meg, hogy mik a konkrét értékek az alap (teljesen zárt / üres) állapottól számolva.
+*   **„Kész, beállítottam a bringán!” (Jóváhagyó gomb):** Nyugtázza a fizikai módosítást a rendszerben, majd átirányít a **Képernyő 2-re**.
+*   **„Vissza” (Fejléc):** Visszavisz a **Képernyő 2-re** az adatok módosítása/alkalmazása nélkül.
 
+---
 
 ### Képernyő 8: Paraméterek Manuális Szerkesztése
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+Haladó, részletes nézet. Listák minden paraméterről (Villa, Rugóstag, és a Guminyomás panelje is helyet kapott). Az értékek mellett interaktív gombok találhatók.
 
-- **Hogyan néz ki?** Haladó nézet. Egy hosszú lista minden lehetséges paraméterről (HSC, LSC, HSR, LSR, PSI), mellettük növelő/csökkentő gombokkal.
-- **Milyen interaktív elemek vannak?**
-    - **Plusz (+) és Mínusz (-) gombok minden paraméternél (Stepper):** Kattintásonként növelik/csökkentik az adott értéket.
-    - **„Mentés jelenlegi állapotként” gomb:** Arra szolgál, ha a felhasználó intelligens asszisztens nélkül állítgatott a hegyen, és ezt akarja rögzíteni.
-    - **„Mentés új pályaként” másodlagos gomb:** Ha a most kikísérletezett érték olyan jó lett, hogy külön elmentené.
-- **Mi történik a gombnyomás után?**
-    - A „Jelenlegi állapotként” gomb menti a módosítást és visszavisz a **Képernyő 2-re**.
-    - Az „Új pályaként” gomb átirányít a **Képernyő 6-ra (Mentés)**.
+**Interakciók és Flow:**
+*   **Plusz (+) és Mínusz (-) gombok (Stepper):** Minden sornál megtalálható apró, gomb alapú vezérlők. (A Tooltipek itt is üzemelnek az (i) betűknél).
+*   **Vissza (Fejléc):** Elveti a manuális próbálkozást és visszavisz a **Képernyő 2-re**.
+*   **„Mentés jelenlegi állapotként” gomb:** Rámenti az értékeket az aktuális profilra és visszavisz a **Képernyő 2-re**.
+*   **„Mentés új pályaként” másodlagos gomb (Outline):** Ha a kísérlet sikeres volt terepen és külön elmentené. Átirányít a **Képernyő 6-ra (Mentés)**, ahol nevet adhat neki.
 
+---
 
 ### Képernyő 9: Intelligens Visszajelzés (Ride Feedback)
 
-- **Hogyan néz ki?**  
-  Egy interaktív "panaszbejelentő" felület, amely a tapasztalt problémák gyors és vizuális megadására fókuszál. Felül tematikus kategóriákba rendezett panaszkártyák (címkék) találhatók rácsos elrendezésben. Alattuk vizuális csúszkák (Slider-ek) helyezkednek el, amelyekkel a kerékpár viselkedésének jellegét lehet finomhangolni. Legalul egy kiemelt CTA gomb található. Nincs szabad szöveges mező, hogy az adatok strukturáltak maradjanak az algoritmus számára.
+**Hogyan néz ki?**
+Dizájnos "panaszbejelentő" űrlap. Felül több, kategóriákba rendezett „chip” gomb, alatta pedig modern, csúszkás vezérlők, melyeket szubjektív érzetek skáláznak be (pl. Puha <-> Rázós). 
 
-- **Milyen interaktív elemek vannak?**
-  - **Gyorspanasz címkék (Multi-select Chips):** Kategóriákra bontva (pl. *Ugrások/Letörések*, *Kanyarodás*, *Köves/Gyökeres szakaszok*). Olyan opciók választhatók, mint „Felüt az ugrásnál”, „Kevés a tapadás kanyarban”, vagy „Pattog a kerék”. Több is kiválasztható egyszerre; rákattintva színt váltanak (aktívak lesznek).
-  - **Karakterisztika csúszkák (Range Sliders):** Két végpontos csúszkák a szubjektív érzet megadására. 
-    - *Rázós (Túl kemény) <---> Puha (Túl lágy)*
-    - *Lassú/Lomha <---> Gyors/Pattogós (Rebound érzet)*
-    - *Kevés támogatás <---> Túl sok támogatás (Középtartomány)*
-  - **„Elemzés és Javaslat kérése” (Kiemelt gomb):** Összegyűjti az aktív címkéket és a csúszkák pozícióját, majd elküldi az adatokat a backendnek elemzésre.
+**Interakciók és Flow:**
+*   **Gyorspanasz címkék (Multi-select Chips):** Egyszerre több is kiválasztható (pl. "Felüt az ugrásnál"). Rákattintva az alap szürke címke élénk zöldre vált.
+*   **Karakterisztika csúszkák (Range Sliders):** Fogd-és-vidd csúszkák a viselkedés megadására.
+*   **„Kihagy” (Fejléc):**  Visszavisz a **Képernyő 2-re**.
+*   **„Elemzés és Javaslat kérése” gomb:** Megnyomásakor egy homályosító töltőképernyő (Loading Overlay) jelentkezik egy forgó animációval és egy "Adatok elemzése és kalkuláció..." szöveggel. 
+*   A töltőképernyő 2 másodperc múlva automatikusan eltűnik és a felhasználót a **Képernyő 10-re (Javaslat)** navigálja.
 
-- **Mi történik a gombnyomás után?**  
-  Megjelenik egy 1-2 másodperces töltőképernyő (animáció), amíg a szabályrendszer kiszámolja a megadott tünetekre a megfelelő hardveres megoldást, majd a rendszer átirányít a **Képernyő 10-re (Javaslat)**.
-
+---
 
 ### Képernyő 10: Intelligens Javaslat és Véglegesítés
 
-[KÉPERNYŐKÉP BEILLESZTÉSE IDE]
+**Hogyan néz ki?**
+A sikeres elemzést nyugtázó blokk fogad. Alatta egy „Előtte -> Utána” táblázat vizuális megjelenítése a változó paramétereknél. Legalul egy lenyitó fül (Accordion) magyarázza a műveletet, majd a gombok következnek.
 
-- **Hogyan néz ki?** Egy „Előtte -> Utána” táblázat vizuális megjelenítése a változó paramétereknél. Felette szöveges magyarázat. Alul két gomb (Elfogad / Elvet).
-- **Milyen interaktív elemek vannak?**
-    - **„Miért javasoljuk ezt?” lenyíló fül (Accordion):** Rákattintva szövegesen elmagyarázza, miért kell a kompresszión állítani a felütés ellen.
-    - **„Módosítások elvetése” másodlagos gomb:** Ha a felhasználónak nem tetszik a javaslat, megszakítja a folyamatot.
-    - **„Javaslat alkalmazása a [Pálya Neve] beállításra” elsődleges gomb:** Jóváhagyja az utasításokat.
-- **Mi történik a gombnyomás után?**
-    - Az elvetés visszavisz a **Képernyő 2-re**.
-    - Az alkalmazás gomb megnyomásával az új értékek felülírják a pálya eddigi profilját az adatbázisban, és a rendszer ezt állítja be aktív fizikai állapotnak, majd átirányít a **Képernyő 2-re**.
-
+**Interakciók és Flow:**
+*   **Összehasonlító kártyák:** A régi értékek áthúzott szürkével, az új - javított - értékek egy jobbra mutató nyíl után vastag zölddel jelennek meg.
+*   **„Miért javasoljuk ezt?” lenyíló fül (Accordion):** Rákattintva szövegesen, emberi nyelven elmagyarázza, miért módosította a program a légnyomást és a kompressziót a felütés ellen.
+*   **„Módosítások elvetése” másodlagos gomb:** Nincs változtatás, megszakítja a folyamatot és visszavisz a **Képernyő 2-re**.
+*   **„Javaslat alkalmazása a beállításra” elsődleges gomb:** Jóváhagyja az utasításokat, és beállítja aktuálisnak a profilján is, majd visszairányít a **Képernyő 2-re (Dashboard)**.
